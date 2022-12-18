@@ -1,4 +1,35 @@
-.common-style{
-    color:pink;
-    font-size: 30px;
+.common-style {
+  color: pink;
+  font-size: 30px;
+}
+.component {
+  border: solid;
+  padding: 50px;
+  background: pink;
+  .component-name {
+  }
+  .component-content {
+    border: solid;
+    height: 50px;
+    margin-bottom: 20px;
+  }
+  .subcomponents {
+    display: flex;
+    justify-content: space-between;
+    .subcomponent {
+      background: hotpink;
+      border: solid;
+      width: 400px;
+      height: 200px;
+      padding:5px;
+      .subcomponent-name {
+      }
+      .subcomponent-content {
+        border: solid;
+      }
+      .subcomponent-content-item{
+        margin:10px;
+      }
+    }
+  }
 }

@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
 import commonroute from './routes/commonroute'
+import ComponentsCommunication from './routes/ComponentsCommunication'
 
 Vue.use(VueRouter)
 
@@ -28,7 +29,8 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/JavascriptAxios.vue')
   },
-  ...commonroute
+  ...commonroute,
+  ...ComponentsCommunication
 ]
 
 const router = new VueRouter({
