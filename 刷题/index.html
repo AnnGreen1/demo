@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="ul">
+            
+    </ul>
+    <script>
+    //    const _createPage = (allItem, pageItem) => {
+    //             // 补全代码
+    //             // document.getElementById
+    //             var ul = document.getElementById('ul')
+    //             let num = allItem%pageItem == 0 ? pageItem : allItem
+    //             for(let i =0;i<num;i++){
+    //                 var p = document.createElement("li");
+    //                 p.innerHTML = i
+    //                     ul.appendChild(p)
+    //             }
+    //         }
+
+            const _createPage = (allItem, pageItem) => {
+    let ul = document.querySelector('#ul')
+    let pageNumber = Math.ceil(allItem / pageItem)
+    for(let i=1 ; i<=pageNumber ; i++) {
+        let li = document.createElement('li')
+        li.innerText = i
+        ul.appendChild(li)
+    }
+}
+         _createPage(13,3)
+
+    </script>
+</body>
+
+</html>

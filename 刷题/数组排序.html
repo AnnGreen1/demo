@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <button onclick='_delete([1,2,3],1)'>销量升序</button>
+        <button class='down'>销量降序</button>
+        <ul></ul>
+
+        <script>
+             const _delete = (array,index) => {
+                // 补全代码
+                console.log("kk");
+            //   console.log(array.slice(0,index).concat(array.slice(index+1,array.length))==='[1,3]');
+            //   console.log(JSON.stringify(array.slice(0,index).concat(array.slice(index+1,array.length))));
+            //   console.log(typeof(JSON.stringify(array.slice(0,index).concat(array.slice(index+1,array.length)))));
+            console.log('[1,3]' === '[1,3]');
+                // return array.slice(0,index-1).concat(array.slice(index+1,array.length))
+            }
+            window.onload=() => _delete([1,2,3],1)
+           
+        </script>
+    </body>
+</html>

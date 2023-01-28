@@ -1,0 +1,1 @@
+![](https://gitee.com/anngreens/delivery/raw/master/src/assets/imgs/home/banner/banner1.png)

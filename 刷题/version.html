@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+       const _shouldUpdate = (oldVersion, newVersion) => {
+                // 补全代码
+                // return parseInt(newVersion.substr(0,1)) > parseInt(oldVersion.substr(0,1)) ? true : ((parseInt(newVersion.substr(2,1)) > parseInt(oldVersion.substr(2,1))? true:(parseInt(newVersion.substr(4,1)) > parseInt(oldVersion.substr(4,1)?true:false)))
+
+                return parseInt(newVersion.substr(0,1)) > parseInt(oldVersion.substr(0,1)) ? true : (parseInt(newVersion.substr(2,1)) > parseInt(oldVersion.substr(2,1)) ? true : parseInt(newVersion.substr(4,1)) > parseInt(oldVersion.substr(4,1)) ? true:false);
+            }
+        window.onload(() =>  _shouldUpdate('0.0.2','0.0.0'))
+
+    </script>
+</body>
+
+</html>

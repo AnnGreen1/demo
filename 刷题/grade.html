@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const _rank = array => {
+            // 补全代码
+            console.log(array)
+            let newgrade = [array[0]];
+            array.forEach(element => {
+                if(newgrade[0].chinese + newgrade[0].math + newgrade[0].english > element.chinese + element.math + element.english )
+            });
+        }
+       
+        let grade = [
+            { name: 'nowcoder1', chinese: 73, math: 80, english: 72 }, //225
+            { name: 'nowcoder2', chinese: 59, math: 53, english: 36 }, //148
+            { name: 'nowcoder3', chinese: 94, math: 96, english: 94 }//284
+        ]; 
+        let array = _rank(grade);
+         console.log(array[0].math === 96 && array[1].math === 80 && array[2].math === 53 );
+        
+    </script>
+</body>
+
+</html>
