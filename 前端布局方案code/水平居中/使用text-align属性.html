@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用text-align属性</title>
+    <link rel="stylesheet" href="public.css">
+    <!--
+        若元素为行内块级元素，也就是 display: inline-block 的元素，
+        可以通过为其父元素设置t ext-align: center 实现水平居中。
+    -->
+    <style>
+        .parent {
+            text-align: center;
+        }
+
+        .child {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="child">
+
+        </div>
+    </div>
+</body>
+
+</html>

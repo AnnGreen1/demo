@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .goodsType {
+            white-space: nowrap;
+            /* overflow-x: scroll; */
+            -webkit-overflow-scrolling: touch;
+            padding: 0.5rem 3%;
+        }
+
+        .goodsTypeitem {
+            margin-right: 0.8rem;
+            display: inline-block;
+            color:black;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .goodsActive {
+            color:black;
+            font-size: 1rem;
+            font-weight: 700;
+            border-bottom: 0.15rem solid #FFF;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul class="goodsType" id="goodsType">
+        <li class="goodsTypeitem goodsActive" tapmode onclick="fnGoodsType(0)">热抢</li>
+        <li class="goodsTypeitem" tapmode onclick="fnGoodsType(1)">推荐</li>
+        <li class="goodsTypeitem" tapmode onclick="fnGoodsType(2)">榜单</li>
+        <li class="goodsTypeitem" tapmode onclick="fnGoodsType(3)">电子</li>
+        <li class="goodsTypeitem" tapmode onclick="fnGoodsType(4)">女装</li>
+        <li class="goodsTypeitem" tapmode onclick="fnGoodsType(5)">男装</li>
+        <li class="goodsTypeitem" tapmode onclick="fnGoodsType(6)">鞋包</li>
+        <li class="goodsTypeitem" tapmode onclick="fnGoodsType(7)">鞋包</li>
+        <li class="goodsTypeitem" tapmode onclick="fnGoodsType(8)">鞋包</li>
+        <li class="goodsTypeitem" tapmode onclick="fnGoodsType(9)">鞋包</li>
+        <li class="goodsTypeitem" tapmode onclick="fnGoodsType(10)">鞋包</li>
+    </ul>
+
+</body>
+
+</html>
