@@ -1,5 +1,3 @@
-const { type } = require("os");
-
 /**
  * @param {number} x
  * @return {number}
@@ -10,10 +8,10 @@ var reverse = function (x) {
   let temp = "";
   str = x.toString();
   for (item of str) {
-    console.log(item);
+    // console.log(item);
     temp = item + temp;
   }
+  if (parseInt(temp) > Math.pow(2, 31) - 1 || parseInt(temp) < -Math.pow(2, 31))
+    temp = 0;
   return flag == 0 ? parseInt(temp) : -1 * parseInt(temp);
 };
-
-console.log(reverse(123));
