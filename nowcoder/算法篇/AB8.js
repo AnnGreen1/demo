@@ -7,9 +7,9 @@ void (async function () {
   line = await readline();
 
   let len = parseInt(line.split(" ")[0]);
-  let times = parseInt(line.split(" ")[0]);
+  let times = parseInt(line.split(" ")[1]);
   let arr = new Array(len).fill(undefined);
-  let front =0;
+  let front = 0;
   let rear = 0;
   console.log(arr);
   while (times > 0) {
@@ -20,17 +20,32 @@ void (async function () {
     // console.log(a + b);
     switch (a) {
       case "push":
-        arr.push(b);
+        console.log('aa');
+        if ((rear + 1) % len == front) {
+          console.log("error");
+        } else {
+            console.log('bb');
+          arr[(rear) % len] = b;
+          rear = (rear + 1) % len;
+        }
+        console.log('dd');
         break;
       case "pop":
-        arr.length == 0 ? console.log("error") : console.log(arr.shift());;
+        if(arr.length == 0) {
+            console.log("error")
+        }else{
+            console.log(arr[front]);
+            arr[front] = undefined ;
+            front+=1;
+        }
         break;
       case "front":
-        arr.length == 0 ? console.log("error") : console.log(arr[0]);
+        arr.length == 0 ? console.log("error") : console.log(arr[front]);
+        break;
       //   default:
       //   // 与 case 1 和 case 2 不同时执行的代码
     }
     times--;
-    // console.log(arr);
+    console.log(times, front, rear, arr);
   }
 })();
