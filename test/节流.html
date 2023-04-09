@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节流函数</title>
+</head>
+
+<body>
+    <button onclick="fun()">click me!</button>
+    <script>
+        
+
+        // 封装节流函数，实现节流
+        function throttle(func, delay = 500) {
+            let timer = null;
+            let status = false;
+
+            return function (...args) {
+                if (status) return;
+
+                status = true;
+
+                timer = setTimeout(() => {
+                    func.apply(this, args);
+                    status = false;
+                }, delay);
+            };
+        }
+        function fun() {
+            console.log(new Date(),'click me!');
+        }
+        throttle(fun,500000)
+    </script>
+</body>
+
+</html>
