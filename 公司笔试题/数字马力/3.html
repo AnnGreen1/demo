@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <script type="text/javascript">
+        function cssStyle2DomStyle(sName) {
+            // 填写JavaScript
+            let newstr = '';
+            let pre = '';
+            for (str of sName) {
+                // console.log(str,pre);
+                if (pre === '-') {
+
+                    pre = '';
+                    let temp = new String(str);
+                    str = temp.toUpperCase(str);
+                    // console.log(temp.toUpperCase(str));
+                }
+                pre = str;
+                newstr += str;
+            }
+            // console.log(sName.split('-'));
+            let s = '';
+            // console.log(newstr);
+            for (str of newstr) {
+
+                if (str != '-') {
+                    s += str;
+                }
+            }
+
+            let t = new String(s[0]);
+            t = t.toLowerCase(s[0]);
+            console.log(t);
+            s = s.slice(1, s.length)
+            console.log(t + s);
+        }
+        cssStyle2DomStyle('-webkit-bbbb-sdfasdf');
+    </script>
+</body>
+
+</html>
