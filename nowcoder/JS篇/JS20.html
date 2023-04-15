@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        
+        <script>
+            const _flatten = arr => {
+                // 补全代码
+                return JSON.parse("[" + JSON.stringify(arr).replace(/\[|\]/g, "") + "]");
+            }
+            console.log(_flatten([1, [2, 3, [4, 5]]]));
+        </script>
+    </body>
+</html>
