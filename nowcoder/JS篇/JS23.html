@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        const _isCard = number => {
+            // 补全代码
+            if (number.at(-1) != 'X' && typeof parseInt(number.at(-1)) != 'number') console.log(false)
+            newn = number.slice(0, number.length - 1);
+            for (item of newn) {
+                if (typeof parseInt(item) == 'number')
+                    continue;
+                else console.log(false);
+            }
+            console.log(true)
+        }
+        _isCard('21062319980907888X');
+    </script>
+</body>
+
+</html>

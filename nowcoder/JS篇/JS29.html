@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+<style>
+    ul {
+        list-style: none;
+    }
+</style>
+
+<body>
+    <ul>
+        <li>全选<input type='checkbox' id='all'></li>
+        <li>Java<input type='checkbox' class='item'></li>
+        <li>javaScript<input type='checkbox' class='item'></li>
+        <li>C++<input type='checkbox' class='item'></li>
+        <li>python<input type='checkbox' class='item'></li>
+        <li>.net<input type='checkbox' class='item'></li>
+    </ul>
+
+    <script>
+        // 补全代码
+        let all = document.getElementById('all');
+        let item = document.getElementsByClassName('item');
+        let options = Array.from(item);
+        all.onchange = () => {
+            console.log('change');
+            console.log(all.checked);
+            for (ele of item)
+                ele.checked = all.checked;
+        }
+        function itemonchange() {
+
+            let time = 0;
+            for (ele of item)
+                if (ele.checked == true) time++;
+
+            console.log(time);
+            time == item.length ? all.checked = true : all.checked = false;
+        }
+        for (ele of item)
+            ele.onchange = itemonchange;
+
+        all.checked = true; 
+        all.onchange();
+        var result = options.every(x => x.checked)
+        console.log(result);  
+    </script>
+</body>
+
+</html>
