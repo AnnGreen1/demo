@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+    </head>
+    <body>
+    	
+        <script type="text/javascript">
+            const _isPalindrome = string => {
+                // 补全代码
+                let head = '';
+                let fail = '';
+                if(string.length%2==0){
+                    head = string.slice(0,string.length/2);
+                    fail = string.slice(string.length/2+1,string.length);
+                }else{
+                     head = string.slice(0,string.length/2);
+                    fail = string.slice(string.length/2+1,string.length);
+                }
+                console.log(head);
+                console.log(fail);
+                let p = 0;
+                for(p=0;p<head.length;p++){
+                    if(head[p]==fail[fail.length-p-1]) continue;
+                    else return false
+                }
+                return true;
+            }
+            console.log(_isPalindrome('awwesdsewwa'));
+        </script>
+    </body>
+</html>

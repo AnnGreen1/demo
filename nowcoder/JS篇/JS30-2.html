@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+    </head>
+    <body>
+    	
+        <script type="text/javascript">
+            const _isPalindrome = string => {
+                // 补全代码
+                let head = 0;
+                let fail = string.length;
+                while(head<fail){
+                    if(string[head]!=string[fail-1]){
+                        return false;
+                    }
+                    head++;
+                    fail--;
+                }
+                return true;
+            }
+            console.log(_isPalindrome('awwesdsewa'));
+        </script>
+    </body>
+</html>
