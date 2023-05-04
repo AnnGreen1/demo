@@ -7,15 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <div hidden>hidden</div>
-    <div onclick="fun()" style="display:none;width:10px;height: 10px;">dddddddddddd</div>
-    <div style="margin:0;">
-        位置
-    </div>
+    <input type="range" name="" id="range" oninput="change(event)" value="2" min="1" max="10">
+
     <script>
-        function fun(){
-            console.log('fun');
+        function change(event){
+            console.log('change');
         }
+        document.getElementById('range').value = 8;
     </script>
 </body>
 </html>
