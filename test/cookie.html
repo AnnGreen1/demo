@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cookie有多大</title>
+</head>
+<body>
+    <script>
+       
+
+        let times = 4*1024+1;
+        let temp='';
+        while(times){
+            temp +='c';
+            times--;
+        }
+        document.cookie = temp;
+        console.log(document.cookie.length);
+        console.log(document.cookie);
+    </script>
+</body>
+</html>

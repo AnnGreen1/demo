@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>防抖和节流</title>
+    <style>
+        div{
+            width:100px;
+            height:100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <span></span>
+    <div></div>
+    <script>
+        let span = document.getElementsByTagName('span');
+        setInterval(() => {
+            span[0].innerHTML = new Date()
+        }, 1000);
+
+
+        span.innerHTML = new Date()
+        let num = 1;
+        let div = document.getElementsByTagName("div")[0];
+
+        function numChange() {
+            console.log(new Date());
+            div.innerHTML = num++;
+        }
+        // 所谓防抖，就是指触发事件后在 n 秒内函数只能执行一次，如果在 n 秒内又触发了事件，则会重新计算函数执行时间。
+        function debounce(callback, time) {
+            let timer;
+            return function () {
+                let context = this;
+                let args = arguments;
+
+                if (timer) {
+                    clearTimeout(timer);
+                }
+
+
+                timer = setTimeout(() => {
+                    callback.apply(context, args)
+                }, time);
+            }
+        }
+        // 所谓节流，就是指连续触发事件但是在 n 秒中只执行一次函数。
+        function throttle(callback, time) {
+            let timer;
+            return function () {
+                let context = this;
+                let args = arguments;
+                if (!timer) {
+                    timer = setTimeout(() => {
+                        timer = null;
+                        callback.apply(context, args)
+                    }, time)
+                }
+
+            }
+        }
+        // 调用方法
+        // 鼠标动的越快，事件触发的频率越高
+        // div.onmousemove = numChange;
+        // 事件触发了n秒后，函数执行一次，n秒内事件再次被触发，时间将会重新计算
+        // div.onclick = debounce(numChange, 5000);
+        // 在n秒内连续触发事件，只执行一次
+        div.onclick = throttle(numChange, 5000);
+    </script>
+</body>
+
+</html>

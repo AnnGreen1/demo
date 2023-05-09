@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>防抖</title>
+</head>
+
+<body>
+    <button id="btn">防抖</button>
+    <script>
+        function debounce(func, wait) {
+            let timeout;
+            return function () {
+                let context = this; // 保存this指向
+                let args = arguments; // 拿到event对象
+
+                clearTimeout(timeout);
+                timeout = setTimeout(function () {
+                    func.apply(context, args)
+                }, wait)
+            }
+        }
+
+        function fun(){
+            console.log("fun", new Date());
+        }
+
+        document.getElementById('btn').onclick = function debouncefun(){
+            console.log('click', new Date());
+            debounce(fun, 5000)
+        }
+    </script>
+</body>
+
+</html>

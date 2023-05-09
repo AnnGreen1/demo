@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="checkbox" name="" id="all" onchange="change()">全选
+    <br />
+    <div class="checkboxitems">
+        <input type="checkbox" name="" id="" class="item" onchange="itemchange()">1
+        <input type="checkbox" name="" id="" class="item" onchange="itemchange()">2
+        <input type="checkbox" name="" id="" class="item" onchange="itemchange()">3
+        <input type="checkbox" name="" id="" class="item" onchange="itemchange()">4
+        <input type="checkbox" name="" id="" class="item" onchange="itemchange()">5
+    </div>
+
+    <script>
+        let all = document.getElementById('all');
+        let items = document.getElementsByClassName('item');
+
+        function change() {
+            console.log(all.checked);
+            // if (all.checked == false) {
+            for (item of items) {
+                item.checked = all.checked;
+            }
+            // }
+            // for (item of items) {
+            //     item.checked = true;
+            // }
+        }
+
+        function itemchange() {
+            let flag = true;
+            let itemsarr = Array.from(items);
+            let none = itemsarr.some(element => {
+                return element.checked === false
+            });
+            console.log(none);
+            if (!none) all.checked = true;
+            else all.checked = false;
+        }
+
+        let checkboxitems = document.getElementsByClassName('checkboxitems');
+        // checkboxitems[]
+    </script>
+</body>
+
+</html>
