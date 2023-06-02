@@ -43,5 +43,13 @@
 // let str: "小杜杜";
 // str = "小杜杜"; //ok
 
-let anyyy:any = 0;
-console.log(typeof anyyy)
+// let anyyy:any = 0;
+// console.log(typeof anyyy)
+
+// let nu: null = null;
+// let a: any = nu;
+// let str: string = nu;
+
+let n:number = 5;
+// n = 'fa';
+console.log(n);
