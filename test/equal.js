@@ -16,12 +16,12 @@
 // console.log('2'==true)
 
 
-let number = 1;
-let bool = true;
-console.log(bool == number);
-console.log(bool === number);
-console.log(number);
-console.log(typeof number);
+// let number = 1;
+// let bool = true;
+// console.log(bool == number);
+// console.log(bool === number);
+// console.log(number);
+// console.log(typeof number);
 
-console.log(bool);
-console.log(typeof bool);
+// console.log(bool);
+// console.log(typeof bool);
