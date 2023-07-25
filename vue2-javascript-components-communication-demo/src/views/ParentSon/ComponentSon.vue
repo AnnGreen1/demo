@@ -39,6 +39,9 @@ export default {
     },
     created() {
         console.log("ComponentSon", this.msgSubStaticProp);
+                console.log("ComponentSon", this.$props.msgSubStaticProp);
+                console.log(typeof this.$props);
+                console.log(this.$props);
         console.log("ComponentSon", this.msgSubDynamicProp);
     }
 }
