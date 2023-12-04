@@ -50,6 +50,45 @@
 // let a: any = nu;
 // let str: string = nu;
 
-let n:number = 5;
+// let n:number = 5;
 // n = 'fa';
-console.log(n);
+// console.log(n);
+
+// type AProps = { a: string; c: number };
+// type BProps = { b: number; c: number };
+
+// type AllProps = AProps & BProps;
+
+// const Info: AllProps = {
+//   a: "小肚肚",
+//   b: 7,
+//   c: 1,
+// };
+
+// interface stu {
+//   name: String;
+// }
+
+// let num: number;
+// let num1!: number;
+
+// const setNumber = () => (num = 7);
+// const setNumber1 = () => (num1 = 7);
+
+// setNumber();
+// setNumber1();
+
+// console.log(num); // error
+// console.log(num1); // ok
+
+type Person = {
+  name: string;
+  age: number;
+  [key: string]: any;
+};
+
+let person: Person = {
+  name: "Alice",
+  age: 30,
+  occupation: "Engineer", // 可以添加任意属性
+};
