@@ -24,5 +24,10 @@ const commonroute = [
         name: "RecorderJianShu",
         component: () => import("@/components/Recorder/RecorderJianShu/Index.vue"),
     },
+    {
+        path: "/RecorderRTASR",
+        name: "RecorderRTASR",
+        component: () => import("@/components/Recorder/RecorderRTASR/Index.vue"),
+    },
 ];
 export default commonroute;
