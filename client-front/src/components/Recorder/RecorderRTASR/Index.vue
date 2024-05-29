@@ -28,6 +28,18 @@ export default {
         }
     },
     methods: {
+        getWebSocketUrl() {
+            // 请求地址根据语种不同变化
+            var url = import.meta.env.VITE_APP_RTASR_WSSURL;
+            var appId = import.meta.env.VITE_APP_RTASR_ADDID;
+            var secretKey = import.meta.env.VITE_APP_RTASR_SECRETKEY;
+            var ts = Math.floor(new Date().getTime() / 1000);
+            var signa = hex_md5(appId + ts);
+            var signatureSha = CryptoJSNew.HmacSHA1(signa, secretKey);
+            var signature = CryptoJS.enc.Base64.stringify(signatureSha);
+            signature = encodeURIComponent(signature);
+            return `${url}?appid=${appId}&ts=${ts}&signa=${signature}`;
+        },
         // 开始录音
         onStartVoice() {
             this.onStopAudio()
@@ -70,6 +82,9 @@ export default {
         onStopAudio() {
             this.recorder.clear(this.audio);
         }
+    },
+    mounted() {
+        console.log(import.meta.env.VITE_APP_RTASR_WSSURL);
     }
 }
 </script>
