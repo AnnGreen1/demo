@@ -1,6 +1,6 @@
 import Recorder from "./recorder";
 export default class Record {
-  startRecord (param) {
+  startRecord(param) {
     let self = this;
     try {
       Recorder.get(rec => {
@@ -14,17 +14,27 @@ export default class Record {
     }
   }
 
-  stopRecord (param) {
+  stopRecord(param) {
     let self = this;
     try {
-      let blobData = self.recorder.getBlob();
+      let blobData = self.recorder.getBlob(true);
       param.success(blobData);
     } catch (e) {
       param.error("结束录音失败" + e);
     }
   }
 
-  play (audio) {
+  getBlob(param) {
+    let self = this;
+    try {
+      let blobData = self.recorder.getBlob(false);
+      param.success(blobData);
+    } catch (e) {
+      param.error("获取数据失败" + e);
+    }
+  }
+
+  play(audio) {
     let self = this;
     try {
       self.recorder.play(audio);
@@ -33,7 +43,7 @@ export default class Record {
     }
   }
 
-  clear (audio) {
+  clear(audio) {
     let self = this;
     try {
       self.recorder.clear(audio);
