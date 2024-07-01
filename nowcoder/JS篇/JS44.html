@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        /* 填写样式 */
+    </style>
+</head>
+
+<body>
+    <!-- 填写标签 -->
+    <script type="text/javascript">
+        function namespace(oNamespace, sPackage) {
+            let tmpWrap = oNamespace;
+            sPackage.split('.').forEach(item => {
+                console.log(item);
+                console.log(tmpWrap[item]);
+                // tmpWrap = tmpWrap[item] = Object.assign({}, tmpWrap[item]);
+                tmpWrap[item] = Object.assign({}, tmpWrap[item]);// 使用 Object.assign() 实现深拷贝
+                console.log(tmpWrap[item]);
+                tmpWrap = tmpWrap[item]
+                console.log(tmpWrap);
+                console.log("-----");
+            });
+            return oNamespace;
+        }
+        let res = namespace({ a: { test: 1, b: 2 } }, 'a.b.c.d')
+        console.log(res);
+
+    </script>
+</body>
+
+</html>

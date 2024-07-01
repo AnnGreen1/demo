@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <caption>
+                商品
+            </caption>
+        </thead>
+        <tbody>
+            <tr>
+                <td>炸鸡</td>
+                <td>28元</td>
+                <td><button id="zjtaiduola">-</button></td>
+                <td><span id="zjsl">0</span></td>
+                <td><button id="zjtaishaola">+</button></td>
+            </tr>
+            <tr>
+                <td>可乐</td>
+                <td>5元</td>
+                <td><button id="kltaiduola">-</button></td>
+                <td><span id="klsl">0</span></td>
+                <td><button id="kltaishaola">+</button></td>
+            </tr>
+            <tr>
+                <td>总价：</td>
+                <td><span id="total">0</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script type="text/javascript">
+        // 补全代码
+        let zjtaiduola = document.getElementById('zjtaiduola')
+        let zjtaishaola = document.getElementById('zjtaishaola')
+        let kltaiduola = document.getElementById('kltaiduola')
+        let kltaishaola = document.getElementById('kltaishaola')
+
+        zjtaiduola.onclick = function () {
+            let zjsl = document.getElementById('zjsl')
+            if (parseInt(zjsl.innerText) > 0)
+                zjsl.innerText = parseInt(zjsl.innerText) - 1
+            renderTotal()
+        }
+
+        zjtaishaola.onclick = function () {
+            let zjsl = document.getElementById('zjsl')
+
+            zjsl.innerText = parseInt(zjsl.innerText) + 1
+            renderTotal()
+        }
+
+        kltaiduola.onclick = function () {
+            let klsl = document.getElementById('klsl')
+            if (parseInt(klsl.innerText) > 0)
+                klsl.innerText = parseInt(klsl.innerText) - 1
+            renderTotal()
+        }
+
+        kltaishaola.onclick = function () {
+            let klsl = document.getElementById('klsl')
+
+            klsl.innerText = parseInt(klsl.innerText) + 1
+            renderTotal()
+        }
+
+        function renderTotal() {
+            let klsl = document.getElementById('klsl')
+            let zjsl = document.getElementById('zjsl')
+            let total = document.querySelector("#total")
+            total.innerText = parseInt(klsl.innerText) * 5 + parseInt(zjsl.innerText) * 28
+        }
+
+        (function () {
+            document.querySelector('#zjtaishaola').click();
+            document.querySelector('#kltaishaola').click();
+            console.log(document.querySelector('#total').innerText === '33');
+            return document.querySelector('#total').innerText === '33'
+        })()
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        /* 填写样式 */
+        div::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: rgb(255, 0, 0);
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script type="text/javascript">
+        /* 填写JavaScript */
+        (function () {
+            var div = document.querySelector('div');
+            var first = getComputedStyle(div, '::after').getPropertyValue('background-color') == "rgb(255, 0, 0)";
+            var second = getComputedStyle(div, '::after').getPropertyValue("width") == "20px";
+            var result = first && second;
+            return result;
+        })()
+    </script>
+</body>
+
+</html>

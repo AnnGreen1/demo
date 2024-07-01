@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        /* 填写样式 */
+    </style>
+</head>
+
+<body>
+    <!-- 填写标签 -->
+    <script type="text/javascript">
+        // 填写JavaScript
+        function count(str) {
+            let obj = {}
+            for (s of str.replace(' ', '')) {
+                console.log(s);
+                if (obj[s] == undefined) {
+                    obj[s] = 1
+                } else {
+                    obj[s] += 1
+                }
+            }
+            console.log(obj);
+        }
+
+        count('hello world')
+    </script>
+</body>
+
+</html>
