@@ -1,0 +1,17 @@
+.slideshow {
+  width: 300px; /* 调整为你需要的宽度 */
+  height: 200px; /* 调整为你需要的高度 */
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation: playFrames 10s infinite; /* 50 张图片 */
+
+  // background-image: url('@/assets/images/interview/record/dada/路径18.png');
+}
+
+@keyframes playFrames {
+  @for $i from 0 through 49 {
+    #{math.percentage($i * math.div(100, 49))} {
+      background-image: url("@/assets/images/interview/record/dada/路径#{$i}.png");
+    }
+  }
+}

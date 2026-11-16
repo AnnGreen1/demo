@@ -1,31 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style>
-        .father {
-            display: table-cell;
-            width: 200px;
-            height: 200px;
-            background: skyblue;
-            vertical-align: middle;
-            text-align: center;
+  </head>
+  <body>
+    <div id="countdown"></div>
+    <script>
+      // 创建 Worker
+      const worker = new Worker("countdown.worker.js");
+      const countdownDisplay = document.getElementById("countdown");
+
+      // 接收 Worker 消息并更新 UI
+      worker.onmessage = function (e) {
+        const { remaining, finished } = e.data;
+        if (finished) {
+          countdownDisplay.textContent = "时间到！";
+          // 执行结束逻辑...
+        } else {
+          // 将毫秒转换为 分:秒 格式显示
+          const seconds = Math.ceil(remaining / 1000);
+          countdownDisplay.textContent = `${Math.floor(seconds / 60)}:${(
+            seconds % 60
+          )
+            .toString()
+            .padStart(2, "0")}`;
         }
-        .son {
-            display: inline-block;
-            width: 100px;
-            height: 100px;
-            background: red;
-        }
-    </style>
-    
-</head>
-<body>
-    <div class="father">
-        <div class="son"></div>
-    </div>
-</body>
+      };
+
+      // 启动一个 5 分钟的倒计时
+      worker.postMessage({ command: "start", duration: 5 * 60 * 1000 });
+
+      // 如需提前停止
+      // worker.postMessage({ command: 'stop' });
+
+      // 页面卸载时销毁 Worker
+      window.onbeforeunload = () => worker.terminate();
+    </script>
+  </body>
 </html>

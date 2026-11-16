@@ -130,8 +130,8 @@ export default {
         },
         initWebsocket() {
             // 实例化 WebSocket
-            this.ws = new WebSocket(this.getWebSocketUrl());
-            // this.ws = new WebSocket(`ws://localhost:8080`);
+            // this.ws = new WebSocket(this.getWebSocketUrl());
+            this.ws = new WebSocket(`ws://localhost:8080`);
             // 当 WebSocket 创建成功时，触发 onopen 事件
             this.ws.onopen = () => {
                 // this.readBolb()

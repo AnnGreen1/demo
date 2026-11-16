@@ -29,5 +29,19 @@ const commonroute = [
         name: "RecorderRTASR",
         component: () => import("@/components/Recorder/RecorderRTASR/Index.vue"),
     },
+    {
+        path: "/VideoCarmera",
+        name: "VideoCarmera",
+        component: () => import("@/views/CommonRoute/VideoCarmera.vue"),
+    },
+    {
+        path: "/ChatView",
+        name: "ChatView",
+        component: () => import("@/views/ChatView.vue"),
+    },
+    {
+        path: "/voicedictation",
+        component: () => import("@/views/VoiceDictation.vue"),
+    },
 ];
 export default commonroute;

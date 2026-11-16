@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+    <script>
+       
+        // 防抖函数  
+        function debounce(func, wait) {  
+            let timeout;  
+            return function (...args) {  
+                const context = this;  
+                clearTimeout(timeout);  
+                timeout = setTimeout(() => func.apply(context, args), wait);  
+            };  
+        }  
+
+        // 使用防抖函数控制连续触发事件的处理函数执行频率  
+        const debouncedHandler = debounce(() => {  
+            console.log('Debounced event triggered');  
+        }, 5000);  
+
+        document.getElementById('btn').addEventListener('click',debouncedHandler)
+    </script>
+</body>
+
+</html>

@@ -9,6 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@muguilin/xf-voice-dictation": "^1.0.1",
+    "@vueuse/core": "^10.11.0",
+    "ebml": "^3.0.0",
+    "marked": "^13.0.2",
     "path": "^0.12.7",
     "vue": "^3.4.21",
     "vue-router": "^4.3.2"

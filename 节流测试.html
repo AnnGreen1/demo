@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="throttledHandleClick">请求</button>
+    <script>
+      function throttle(func, delay) {
+        let throttled = false;
+        let canceled = false;
+
+        return function () {
+          if (canceled) {
+            return;
+          }
+
+          if (!throttled) {
+            func.apply(this, arguments);
+            throttled = true;
+            setTimeout(() => {
+              throttled = false;
+            }, delay);
+          }
+        };
+      }
+
+      // 用法示例
+      function handleClick() {
+        console.log("处理点击事件");
+      }
+
+      const throttledHandleClick = throttle(handleClick, 2000);
+
+      // 模拟点击事件
+    //   document.addEventListener("click", throttledHandleClick);
+
+      // 模拟接口返回结果后取消节流
+    //   setTimeout(() => {
+    //     // 假设接口返回结果后取消节流
+    //     canceled = true;
+    //     console.log("取消节流");
+    //   }, 1000);
+    </script>
+  </body>
+</html>

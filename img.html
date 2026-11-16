@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <title>my example</title>
+    <!-- pdfmake files: -->
+    <script src='https://cdn.jsdelivr.net/npm/pdfmake@latest/build/pdfmake.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/pdfmake@latest/build/vfs_fonts.min.js'></script>
+    <!-- html-to-pdfmake file: -->
+    <script src="https://cdn.jsdelivr.net/npm/html-to-pdfmake/browser.js"></script>
+</head>
+
+<body>
+    […]
+    <script>
+        var val = htmlToPdfmake("your html code here");
+        var dd = { content: val };
+        pdfMake.createPdf(dd).download();
+    </script>
+</body>
+
+</html>

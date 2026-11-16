@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Trimming with FFmpeg</title>
+</head>
+
+<body>
+    <input type="file" id="upload" accept="video/*">
+    <button id="trim">Trim Video</button>
+    <video id="output" controls></video>
+    <script src="https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ffmpeg-core/0.11.0/ffmpeg-core.js"
+        integrity="sha512-S+8zQ6EZXOLqbBKYtBvY14LhPbQENkTQu6TuC7oAAMIvVrk3uABGvPqRiN5IlzFK0TB1kDCz+fI4jZ9Cc/SfAQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        const { createFFmpeg, fetchFile } = FFmpeg;
+        const ffmpeg = createFFmpeg({ log: true });
+
+        document.getElementById('upload').addEventListener('change', async (event) => {
+            const file = event.target.files[0];
+            if (!file) return;
+            const blobURL = URL.createObjectURL(file);
+            const videoElement = document.createElement('video');
+            videoElement.src = blobURL;
+            videoElement.controls = true;
+            document.body.appendChild(videoElement);
+            await ffmpeg.load();
+            ffmpeg.FS('writeFile', 'input.mp4', await fetchFile(file));
+        });
+
+        document.getElementById('trim').addEventListener('click', async () => {
+            const startTime = '00:00:05'; // 起始时间  
+            const duration = '10'; // 截取时长（秒）  
+
+            await ffmpeg.run('-i', 'input.mp4', '-ss', startTime, '-t', duration, 'output.mp4');
+            const data = ffmpeg.FS('readFile', 'output.mp4');
+
+            const outputBlob = new Blob([data.buffer], { type: 'video/mp4' });
+            const outputURL = URL.createObjectURL(outputBlob);
+            const outputVideoElement = document.getElementById('output');
+            outputVideoElement.src = outputURL;
+            outputVideoElement.load();
+        });  
+    </script>
+</body>
+
+</html>
